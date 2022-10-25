@@ -2971,6 +2971,11 @@ case "${target}" in
 
 	subdirs="$subdirs nios2"
 	;;
+  tricore-*-*)
+	ac_config_files="$ac_config_files tricore/Makefile"
+
+	subdirs="$subdirs tricore"
+	;;
 esac
 
 
@@ -5937,6 +5942,7 @@ do
     "or1k/Makefile") CONFIG_FILES="$CONFIG_FILES or1k/Makefile" ;;
     "pru/Makefile") CONFIG_FILES="$CONFIG_FILES pru/Makefile" ;;
     "nios2/Makefile") CONFIG_FILES="$CONFIG_FILES nios2/Makefile" ;;
+    "tricore/Makefile") CONFIG_FILES="$CONFIG_FILES tricore/Makefile" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
     "default-2") CONFIG_COMMANDS="$CONFIG_COMMANDS default-2" ;;

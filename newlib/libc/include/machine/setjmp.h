@@ -389,6 +389,13 @@ _BEGIN_STD_C
 #endif
 #endif
 
+#if defined(__tricore__)
+#define _JBTYPE  \
+struct _jmp_buf { unsigned long return_address; unsigned long upper_ctx[16]; }
+#define _JBLEN 1
+#endif
+
+
 #ifdef __CSKYABIV2__
 #define _JBTYPE unsigned long
 #if defined(__CK801__)

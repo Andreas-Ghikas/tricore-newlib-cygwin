@@ -245,6 +245,11 @@ case "${target}" in
 	AC_CONFIG_FILES([nios2/Makefile])
 	subdirs="$subdirs nios2"
 	;;
+  tricore-*-*)
+	AC_CONFIG_FILES([tricore/Makefile])
+	subdirs="$subdirs tricore"
+	host_makefile_frag=${srcdir}/config/tricore.mh
+	;;	
 esac
 AC_SUBST(subdirs)
 

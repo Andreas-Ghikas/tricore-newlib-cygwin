@@ -501,6 +501,15 @@
 #define __IEEE_LITTLE_ENDIAN
 #endif
 
+#ifdef __tricore__
+#define __IEEE_LITTLE_ENDIAN
+#ifdef __HAVE_SHORT_DOUBLE__
+#if (__SIZEOF_DOUBLE__ == __SIZEOF_FLOAT__)
+#define _DOUBLE_IS_32BITS
+#endif
+#endif
+#endif
+
 #ifdef __CYGWIN__
 #define __OBSOLETE_MATH_DEFAULT 0
 #endif

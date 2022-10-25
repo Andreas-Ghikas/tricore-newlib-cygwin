@@ -184,7 +184,7 @@ CONFIG_CLEAN_FILES = aarch64/Makefile aarch64/cpu-init/Makefile \
 	mt/Makefile v850/Makefile visium/Makefile xc16x/Makefile \
 	xstormy16/Makefile m32c/Makefile msp430/Makefile rl78/Makefile \
 	rx/Makefile arm/Makefile arm/cpu-init/Makefile spu/Makefile \
-	tic6x/Makefile or1k/Makefile pru/Makefile nios2/Makefile
+	tic6x/Makefile or1k/Makefile pru/Makefile nios2/Makefile tricore/Makefile
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -947,6 +947,8 @@ or1k/Makefile: $(top_builddir)/config.status $(top_srcdir)/or1k/Makefile.in
 pru/Makefile: $(top_builddir)/config.status $(top_srcdir)/pru/Makefile.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 nios2/Makefile: $(top_builddir)/config.status $(top_srcdir)/nios2/Makefile.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
+tricore/Makefile: $(top_builddir)/config.status $(top_srcdir)/tricore/Makefile.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-multilibtoolLIBRARIES: $(multilibtool_LIBRARIES)
 	@$(NORMAL_INSTALL)

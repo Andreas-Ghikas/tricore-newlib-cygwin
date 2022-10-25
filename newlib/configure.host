@@ -337,6 +337,10 @@ case "${host_cpu}" in
   tic80*)
 	machine_dir=tic80
 	;;
+  tricore*)
+	newlib_cflags="${newlib_cflags} -DABORT_PROVIDED -DNO_EXEC -DMISSING_SYSCALL_NAMES"
+	machine_dir=tricore
+	;;
   v70)
 	;;
   v810)
@@ -549,6 +553,14 @@ case "${host}" in
 	;;
   tic80*)
 	sys_dir=tic80
+	;;
+  tricore*)
+	newlib_cflags="${newlib_cflags} -DABORT_PROVIDED -DNO_EXEC -DMISSING_SYSCALL_NAMES -DWANT_PRINTF_LONG_LONG -DSMALL_MEMORY"
+	syscall_dir=
+	sys_dir=tricore
+	default_newlib_io_long_long="yes"
+	default_newlib_io_c99_formats="yes"
+	have_crt0="no"
 	;;
   v70-nec-*)
 	sys_dir=sysvnecv70

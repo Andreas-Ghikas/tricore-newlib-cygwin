@@ -62,5 +62,19 @@ exit (int code)
   if (__stdio_exit_handler != NULL)
     (*__stdio_exit_handler) ();
 
+#ifdef __TRICORE__
+  /* the tsim will test a14 for 0x900d to output pass or fail at the
+   * symbol _exit. Therefor we set a14 to 0x900d if the
+   * exit code is zero
+   */
+  if (code)
+    {
+      __asm__ volatile ("mov.a %%a14, %0;mov  %%d4,%1;j _exit":: "d" (code | 0xffff0000), "d" (code));
+    }
+  else
+    __asm__ volatile ("mov.a %%a14, %0;mov  %%d4,%1;j _exit":: "d" (0x900d),
+                      "d" (code));
+#endif
+  
   _exit (code);
 }

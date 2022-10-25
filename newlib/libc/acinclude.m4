@@ -22,6 +22,7 @@ m4_foreach_w([SYS_DIR], [
   rdos rtems
   sh sysmec sysnec810 sysnecv850 sysvi386 sysvnecv70
   tic80 tirtos
+  tricore
   w65
   z8ksim
 ], [AM_CONDITIONAL([HAVE_LIBC_SYS_]m4_toupper(SYS_DIR)[_DIR], test "${sys_dir}" = SYS_DIR)])
@@ -56,6 +57,7 @@ m4_foreach_w([MACHINE], [
   riscv rl78 rx
   sh sparc spu
   tic4x tic6x tic80
+  tricore
   v850 visium
   w65
   x86_64 xc16x xstormy16
