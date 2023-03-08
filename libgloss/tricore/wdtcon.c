@@ -26,7 +26,7 @@
     <http://www.gnu.org/licenses/>.  */
 
 
-#if defined(__TC161__) || defined(__TC162__)
+#if defined(__TC161__) || defined(__TC162__) || defined(__TC18__)
 
 #define  _DSYNC() __asm__ volatile ("dsync" ::: "memory")
 #if !defined (__MFCR)
@@ -59,7 +59,7 @@ typedef struct
 #define WDTCON_CPU_STRIDE       0x0C
 /* safety watchdog */
 #define WDTS_BASE_ADDR          0xF00360F0
-#elif defined(__TC162__)
+#elif defined(__TC162__) || defined(__TC18__)
 #define WDTCON_BASE_ADDR        0xF003624C
 #define WDTCON_CPU_STRIDE       0x0C
 /* safety watchdog */
@@ -73,7 +73,7 @@ static inline WdtCon_t * __getWdtBase(void)
     /* get the core ID from CPU_ID (csfr_base + 0xfe1c) */
     coreId = __MFCR(CORE_ID_ADDR) & CORE_ID_MASK;
 
-#if defined(__TC162__)
+#if defined(__TC162__) || defined(__TC18__)
     /* special mapping for CPU5: CORE_ID == 6 */
     if (coreId == 6)
     {

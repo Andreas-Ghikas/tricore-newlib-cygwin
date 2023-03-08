@@ -61,7 +61,7 @@ loop:
     jeq %d5,%d6,restore	# if same as saved one then restore registers
 #if defined (__TC13__) || defined (__TC131__) || defined (__TC16__)
     jz.t %d5,22,lctx	# csa contains lower context?
-#elif defined (__TC161__) || defined (__TC162__)
+#elif defined (__TC161__) || defined (__TC162__) || defined (__TC18__)
     jz.t %d5,20,lctx	# csa contains lower context?
 #else
 #error adjust setjmp / longjmp
