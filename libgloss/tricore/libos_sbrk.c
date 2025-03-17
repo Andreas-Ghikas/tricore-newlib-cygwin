@@ -1,6 +1,7 @@
 #include<stddef.h>
 #include<errno.h>
 #include<stdio.h>
+#include<stdlib.h>
 
 extern char __HEAP;
 extern char __HEAP_END;
